@@ -75,8 +75,10 @@ class Calendar
         }
 
         if ($this->dayOfWeek != 7) {
-            $remainingDays = 7 - $this->dayOfWeek;
-            $calendar .= "<td colspan='$remainingDays'>&nbsp;</td>";
+            $remainingDays = 8 - $this->dayOfWeek;
+            if ($remainingDays != 7) {
+                $calendar .= str_repeat("<td>&nbsp;</td>", $remainingDays);
+            }
         }
 
         $calendar .= "</tr></tbody></table>";
